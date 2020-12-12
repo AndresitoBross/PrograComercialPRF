@@ -1,8 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Marca
+from .models import Marca, Servicio
 from .forms import MarcaForm
+
+
+# POST SERVICIO
+def lista_servicio(request):
+    posts = Servicio.objects.filter().order_by('nombre')
+    return render(request, 'blog/lista_servicio.html', {'posts': posts})
 
 def marca_lista(request):
     marces = Marca.objects.filter().order_by('nombre')
@@ -36,3 +42,4 @@ def marca_eliminar(request, pk):
     marca = get_object_or_404(Marca, pk=pk)
     marca.eliminar()
     return redirect('marca_lista')
+
