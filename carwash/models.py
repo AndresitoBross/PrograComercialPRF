@@ -35,4 +35,15 @@ class Marca(models.Model):
     class Meta:
         verbose_name_plural="Marcas"
 
+class Automovil(models.Model):
+    placa = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+    cliente_fk = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    servicio_fk = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+    marca_fk = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
+    def _str_(self):
+        return self.placa
+    
+    class Meta:
+        verbose_name_plural="Automoviles"
