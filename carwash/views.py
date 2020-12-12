@@ -42,4 +42,4 @@ def marca_eliminar(request, pk):
     marca = get_object_or_404(Marca, pk=pk)
     marca.eliminar()
     return redirect('marca_lista')
->>>>>>> master
+
