@@ -7,7 +7,7 @@ class Servicio(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.CharField(max_length=100)
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre
         
 class Cliente(models.Model):
@@ -17,7 +17,7 @@ class Cliente(models.Model):
     telefono = models.CharField(max_length=8)
     imagen = models.ImageField(null=True , blank= True)
 
-    def _str_(self):
+    def __str__(self):
         return self.nombres
     
     def Clientepost(self):
