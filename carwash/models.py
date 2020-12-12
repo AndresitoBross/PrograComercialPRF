@@ -2,13 +2,22 @@ from django.db import models
 from django.utils import timezone
 
 class Servicio(models.Model):
-
     nombre = models.CharField(max_length=100)
     precio = models.CharField(max_length=100)
 
+    def Serviciopost(self):
+        self.save()
+
+    def eliminar(self):
+        self.delete()
+
     def _str_(self):
         return self.nombre
-        
+    
+    class Meta:
+        verbose_name_plural="Servicios"
+  
+
 class Cliente(models.Model):
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
