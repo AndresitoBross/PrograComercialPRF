@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-
 from .models import Marca, Servicio, Cliente
-from .forms import MarcaForm, ServicioForm
+from .forms import MarcaForm, ClienteForm, ServicioForm
 
 
 def lista_servicio(request):
