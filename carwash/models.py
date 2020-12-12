@@ -14,7 +14,7 @@ class Cliente(models.Model):
     apellidos = models.CharField(max_length=50)
     dpi = models.CharField(max_length=10)
     telefono = models.CharField(max_length=20)
-    imagen = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    imagen = models.ImageField(null=True , blank= True)
 
     def _str_(self):
         return self.nombres
