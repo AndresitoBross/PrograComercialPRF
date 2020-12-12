@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Marca, Servicio, Cliente
+from .models import Marca, Servicio, Cliente, Automovil
 from .forms import MarcaForm
 
 
@@ -75,3 +75,9 @@ def cliente_eliminar(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     cliente.eliminar()
     return redirect('cliente_lista')
+
+#Automovil
+def automovil_lista(request):
+    automovil = Automovil.objects.filter().order_by('placa')
+    return render(request, 'blog/automovil_lista.html', {'automovil':automovil})
+
