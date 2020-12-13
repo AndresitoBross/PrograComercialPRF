@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from .models import Marca, Servicio, Cliente, Automovil
 from .forms import MarcaForm, ClienteForm, ServicioForm, AutomovilForm
 from django.utils import timezone
 
 
 #Servicio
+@login_required
 def lista_servicio(request):
     posts = Servicio.objects.filter().order_by('service')
     return render(request, 'blog/lista_servicio.html', {'posts': posts})
@@ -24,6 +25,7 @@ def servicio_nuevo(request):
         formulario = ServicioForm()
     return render(request, 'blog/servicio_editar.html', {'formulario': formulario})
 
+@login_required
 def servicio_editar(request, pk):
     servicio = get_object_or_404(Servicio, pk=pk)
     if request.method == "POST":
@@ -36,16 +38,19 @@ def servicio_editar(request, pk):
         formulario = ServicioForm(instance=servicio)
     return render(request, 'blog/servicio_editar.html', {'formulario': formulario})
 
+@login_required
 def servicio_eliminar(request, pk):
     servicio = get_object_or_404(Servicio, pk=pk)
     servicio.eliminar()
     return redirect('lista_servicio')
 
-#Marca  
+#Marca
+@login_required
 def marca_lista(request):
     marces = Marca.objects.filter().order_by('nombre')
     return render(request, 'blog/marca_lista.html', {'marces':marces})
     
+@login_required
 def marca_nueva(request):
     if request.method == "POST":
         formulario = MarcaForm(request.POST)
@@ -57,6 +62,7 @@ def marca_nueva(request):
         formulario = MarcaForm()
     return render(request, 'blog/marca_editar.html', {'formulario': formulario})
 
+@login_required
 def marca_editar(request, pk):
     marca = get_object_or_404(Marca, pk=pk)
     if request.method == "POST":
@@ -69,16 +75,19 @@ def marca_editar(request, pk):
         formulario = MarcaForm(instance=marca)
     return render(request, 'blog/marca_editar.html', {'formulario': formulario})
 
+@login_required
 def marca_eliminar(request, pk):
     marca = get_object_or_404(Marca, pk=pk)
     marca.eliminar()
     return redirect('marca_lista')
 
 #Cliente
+@login_required
 def cliente_lista(request):
     client = Cliente.objects.filter().order_by('nombres')
     return render(request, 'blog/cliente_lista.html', {'client':client})
 
+@login_required
 def cliente_nuevo(request):
     if request.method == "POST":
         formulario = ClienteForm(request.POST)
@@ -90,6 +99,7 @@ def cliente_nuevo(request):
         formulario = ClienteForm()
     return render(request, 'blog/cliente_editar.html', {'formulario': formulario})
 
+@login_required
 def cliente_editar(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     if request.method == "POST":
@@ -102,16 +112,19 @@ def cliente_editar(request, pk):
         formulario = ClienteForm(instance=cliente)
     return render(request, 'blog/cliente_editar.html', {'formulario': formulario})
 
+@login_required
 def cliente_eliminar(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     cliente.eliminar()
     return redirect('cliente_lista')
 
 #Automovil
+@login_required
 def automovil_lista(request):
     automoviles = Automovil.objects.filter().order_by('placa')
     return render(request, 'blog/automovil_lista.html', {'automoviles':automoviles})
 
+@login_required
 def automovil_nuevo(request):
     if request.method == "POST":
         formulario = AutomovilForm(request.POST)
@@ -123,6 +136,7 @@ def automovil_nuevo(request):
         formulario = AutomovilForm()
     return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
 
+@login_required
 def automovil_editar(request, pk):
     automovil = get_object_or_404(Automovil, pk=pk)
     if request.method == "POST":
@@ -135,6 +149,7 @@ def automovil_editar(request, pk):
         formulario = AutomovilForm(instance=automovil)
     return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
 
+@login_required
 def automovil_eliminar(request, pk):
     automovil = get_object_or_404(Automovil, pk=pk)
     automovil.eliminar()
