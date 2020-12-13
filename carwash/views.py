@@ -1,9 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from .models import Marca, Servicio, Cliente, Automovil
 from .forms import MarcaForm, ClienteForm, ServicioForm, AutomovilForm
 from django.utils import timezone
-
+ 
+#User
+def registerPage(request):
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'blog/register.html', context)
 
 #Servicio
 @login_required
