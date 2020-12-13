@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
 from .models import Marca, Servicio, Cliente, Automovil
-from .forms import MarcaForm, ClienteForm, ServicioForm
+from .forms import MarcaForm, ClienteForm, ServicioForm, AutomovilForm
 
 #Servicio
 def lista_servicio(request):
@@ -116,3 +116,13 @@ def automovil_lista(request):
     automovil = Automovil.objects.filter().order_by('placa')
     return render(request, 'blog/automovil_lista.html', {'automovil':automovil})
 
+def automovil_nuevo(request):
+    if request.method == "POST":
+        formulario = AutomovilForm(request.POST)
+        if formulario.is_valid():
+            automovil = formulario.save(commit=False)
+            automovil.save()
+            return redirect('automovil_lista')
+    else:
+        formulario = AutomovilForm()
+    return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
