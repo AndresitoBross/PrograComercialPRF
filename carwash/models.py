@@ -67,3 +67,6 @@ class Automovil(models.Model):
     
     class Meta:
         verbose_name_plural="Automoviles"
+    
+    def Automovilpost(self):
+        self.save()
