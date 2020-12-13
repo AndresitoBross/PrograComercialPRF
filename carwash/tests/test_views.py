@@ -14,23 +14,27 @@ class MarcaTestViews(TestCase):
     def test_marca_lista_GET(self):
         response=self.client.get(self.lista_url)
         self.assertEquals(response.status_code,302)
-        #self.assertTemplateUsed(response,'blog/marca_lista.html')
 
     def test_marca_nueva_POST(self):
         response=self.client.post(self.nueva_url)
         self.assertEquals(response.status_code,302)
-        #self.assertTemplateUsed(response,'blog/marca_editar.html')
     
-    #def test_marca_editar_GET(self):
-    #    response=self.client.get(self.editar_url)
-    #    self.assertEquals(response.status_code,200)
-    #    self.assertTemplateUsed(response,'blog/marca_editar.html')
+    def test_marca_editar_PUT(self):
+        response=self.client.put(self.editar_url)
+        self.assertEquals(response.status_code,302)
+
+    def test_marca_eliminar_delete(self):
+        response=self.client.delete(self.eliminar_url)
+        self.assertEquals(response.status_code,302)
 
 class ClienteTestViews(TestCase):
+
     def setUp(self):
         self.client=Client()
         self.lista_url=reverse('cliente_lista')
         self.nueva_url=reverse('cliente_nuevo')
+        self.eliminar_url=reverse('cliente_eliminar', kwargs={'pk': 1})
+        self.editar_url=reverse('cliente_editar', kwargs={'pk': 1})
 
     def test_cliente_lista_GET(self):
         response=self.client.get(self.lista_url)
@@ -39,12 +43,22 @@ class ClienteTestViews(TestCase):
     def test_cliente_nueva_POST(self):
         response=self.client.post(self.nueva_url)
         self.assertEquals(response.status_code,302)
+    
+    def test_cliente_editar_PUT(self):
+        response=self.client.put(self.editar_url)
+        self.assertEquals(response.status_code,302)
+
+    def test_cliente_eliminar_delete(self):
+        response=self.client.delete(self.eliminar_url)
+        self.assertEquals(response.status_code,302)
 
 class ServicioTestViews(TestCase):
     def setUp(self):
         self.client=Client()
         self.lista_url=reverse('lista_servicio')
         self.nueva_url=reverse('servicio_nuevo')
+        self.eliminar_url=reverse('servicio_eliminar', kwargs={'pk': 1})
+        self.editar_url=reverse('servicio_editar', kwargs={'pk': 1})
 
     def test_servicio_lista_GET(self):
         response=self.client.get(self.lista_url)
@@ -54,11 +68,21 @@ class ServicioTestViews(TestCase):
         response=self.client.post(self.nueva_url)
         self.assertEquals(response.status_code,200)
 
+    def test_servicio_editar_PUT(self):
+        response=self.client.put(self.editar_url)
+        self.assertEquals(response.status_code,302)
+
+    def test_servicio_eliminar_delete(self):
+        response=self.client.delete(self.eliminar_url)
+        self.assertEquals(response.status_code,302)
+
 class AutomovilTestViews(TestCase):
     def setUp(self):
         self.client=Client()
         self.lista_url=reverse('automovil_lista')
         self.nueva_url=reverse('automovil_nuevo')
+        self.eliminar_url=reverse('automovil_eliminar', kwargs={'pk': 1})
+        self.editar_url=reverse('automovil_editar', kwargs={'pk': 1})
 
     def test_automovil_lista_GET(self):
         response=self.client.get(self.lista_url)
@@ -66,4 +90,12 @@ class AutomovilTestViews(TestCase):
     
     def test_automovil_nueva_POST(self):
         response=self.client.post(self.nueva_url)
+        self.assertEquals(response.status_code,302)
+    
+    def test_automovil_editar_PUT(self):
+        response=self.client.put(self.editar_url)
+        self.assertEquals(response.status_code,302)
+
+    def test_automovil_eliminar_delete(self):
+        response=self.client.delete(self.eliminar_url)
         self.assertEquals(response.status_code,302)
