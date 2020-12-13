@@ -21,4 +21,5 @@ urlpatterns = [
     path('automovil', views.automovil_lista, name='automovil_lista'),
     path('automovil/nuevo', views.automovil_nuevo, name='automovil_nuevo'),
     path('automovil/<int:pk>/editar/', views.automovil_editar, name='automovil_editar'),
+    path('automovil/<int:pk>/eliminar/', views.automovil_eliminar, name='automovil_eliminar'),
 ]

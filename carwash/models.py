@@ -70,3 +70,6 @@ class Automovil(models.Model):
     
     def Automovilpost(self):
         self.save()
+        
+    def eliminar(self):
+        self.delete()

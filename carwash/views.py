@@ -138,3 +138,8 @@ def automovil_editar(request, pk):
     else:
         formulario = AutomovilForm(instance=automovil)
     return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
+
+def automovil_eliminar(request, pk):
+    automovil = get_object_or_404(Automovil, pk=pk)
+    automovil.eliminar()
+    return redirect('automovil_lista')

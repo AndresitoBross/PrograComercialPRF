@@ -28,6 +28,9 @@
                 <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;"
                     href="{% url 'automovil_editar' pk=automovil.pk %}">
                     <i class="fa fa-pencil" style="color: white;"></i>&nbsp;Editar</a>
+                    <a class="btn btn-danger btn-sm"
+                    href="{% url 'automovil_eliminar' pk=automovil.pk %}">
+                        <i class="fa fa-ban" style="color: white;"></i>&nbsp;Eliminar</a>
                 </td>
             </tr>
             {%endfor %}
