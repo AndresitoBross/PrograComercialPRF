@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Carwash Dinaco</title>
 </head>
 
@@ -26,6 +27,7 @@
         style="background-color:#4c918a; min-height: 97px;">
         <a class="navbar-brand" href="http://127.0.0.1:8000" style="font-size:21px;">D i n a c o</a>
         <a class="nav-link" style="color: whitesmoke;">|</a>
+        {% if user.is_authenticated %}
         <div style="width: 5px;"></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +41,8 @@
                 </li>
                 <div style="width: 10px;"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/automovil" 
-                    style="min-width: 21px; font-size: 18px;">Automovil</a>
+                    <a class="nav-link" href="http://127.0.0.1:8000/automovil"
+                        style="min-width: 21px; font-size: 18px;">Automovil</a>
                 </li>
                 <div style="width: 10px;"></div>
                 <li class="nav-item">
@@ -52,8 +54,14 @@
                     <a class="nav-link" href="http://127.0.0.1:8000/servicio"
                         style="min-width: 21px; font-size: 18px;">Servicio</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="min-width: 21px; font-size: 18px;">Bienvenido: {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></a>
+                </li>
+                {% else %}
+                <a href="{% url 'login' %}" class="top-menu"><span class="fa fa-lock"></span></a>
             </ul>
         </div>
+        {% endif %}
     </nav>
     <br><br>
     {% block content %}
