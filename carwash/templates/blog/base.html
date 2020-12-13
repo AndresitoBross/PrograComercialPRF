@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-#00806F"
         style="background-color:#522220; min-height: 97px;">
-        <a class="navbar-brand" href="http://127.0.0.1:8000" style="font-size:21px;">D i n o c o</a>
+        <a class="navbar-brand" href="http://127.0.0.1:8000" style="font-size:21px;">&nbsp;&nbsp;&nbsp;D I N O C O</a>
         <a class="nav-link" style="color: whitesmoke;">|</a>
         {% if user.is_authenticated %}
         <div style="width: 5px;"></div>
@@ -36,26 +36,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/cliente"
+                    <a class="nav-link" href="{% url 'cliente_lista' %}"
                         style="min-width: 21px; font-size: 18px;">Clientes</a>
                 </li>
                 <div style="width: 10px;"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/automovil"
+                    <a class="nav-link" href="{% url 'automovil_lista' %}"
                         style="min-width: 21px; font-size: 18px;">Automovil</a>
                 </li>
                 <div style="width: 10px;"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/marca"
+                    <a class="nav-link" href="{% url 'marca_lista' %}"
                         style="min-width: 21px; font-size: 18px;">Marca</a>
                 </li>
                 <div style="width: 10px;"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/servicio"
+                    <a class="nav-link" href="{% url 'lista_servicio' %}"
                         style="min-width: 21px; font-size: 18px;">Servicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="min-width: 21px; font-size: 18px;">Bienvenido: {{ user.username }} <small>(<a href="{% url 'logout' %}">Logout</a>)</small></a>
+                <div style="width: 675px;"></div>
+                <li class="nav-item" style="float:right">
+                    <a class="nav-link" style="min-width: 21px; font-size: 18px; color: whitesmoke;">Bienvenido {{ user.username }}</a>
+                </li> 
+                <div style="width: 10px;"></div>
+                <li class="nav-item" style="float:right">
+                    <a class="nav-link" style="min-width: 21px; font-size: 18px;" href="{% url 'logout' %}">Logout</small></a>
                 </li>
                 {% else %}
                 <a href="{% url 'login' %}" class="top-menu"><span class="fa fa-lock"></span></a>

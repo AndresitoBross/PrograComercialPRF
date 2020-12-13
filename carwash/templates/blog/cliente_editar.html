@@ -1,8 +1,13 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<div class="content container">
+<br>
 <h2>Nuevo cliente</h2>
+<br>
 <form method="POST" class="post-form">{% csrf_token %}
     {{ formulario.as_p }}
-    <button type="submit" class="save btn btn-default">Grabar</button>
+    <button type="submit" class="save btn btn-default" style="background-color:#69243E; color: whitesmoke; 
+    border-radius: 25px;">G r a b a r</button>
 </form>
+</div>
 {% endblock %}
