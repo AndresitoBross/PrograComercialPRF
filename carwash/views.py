@@ -113,8 +113,8 @@ def cliente_eliminar(request, pk):
 
 #Automovil
 def automovil_lista(request):
-    automovil = Automovil.objects.filter().order_by('placa')
-    return render(request, 'blog/automovil_lista.html', {'automovil':automovil})
+    automoviles = Automovil.objects.filter().order_by('placa')
+    return render(request, 'blog/automovil_lista.html', {'automoviles':automoviles})
 
 def automovil_nuevo(request):
     if request.method == "POST":
@@ -125,4 +125,16 @@ def automovil_nuevo(request):
             return redirect('automovil_lista')
     else:
         formulario = AutomovilForm()
+    return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
+
+def automovil_editar(request, pk):
+    automovil = get_object_or_404(Automovil, pk=pk)
+    if request.method == "POST":
+        formulario = AutomovilForm(request.POST, instance=automovil)
+        if formulario.is_valid():
+            automovil = formulario.save(commit=False)
+            automovil.save()
+            return redirect('automovil_lista')
+    else:
+        formulario = AutomovilForm(instance=automovil)
     return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
