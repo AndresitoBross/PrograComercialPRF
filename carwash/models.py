@@ -58,9 +58,9 @@ class Marca(models.Model):
 class Automovil(models.Model):
     placa = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
-    cliente_fk = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    servicio_fk = models.ForeignKey(Servicio, on_delete=models.CASCADE)
-    marca_fk = models.ForeignKey(Marca, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.placa
@@ -70,6 +70,6 @@ class Automovil(models.Model):
     
     def Automovilpost(self):
         self.save()
-        
+
     def eliminar(self):
         self.delete()

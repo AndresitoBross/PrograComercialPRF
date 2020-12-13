@@ -24,4 +24,4 @@ class AutomovilForm(forms.ModelForm):
 
     class Meta:
         model = Automovil
-        fields = ('placa', 'color', 'marca_fk', 'cliente_fk', 'servicio_fk')
+        fields = ('placa', 'color', 'marca', 'cliente', 'servicio')

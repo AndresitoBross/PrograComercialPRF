@@ -22,9 +22,9 @@
                 <td>{{automovil.pk}}</td>
                 <td>{{automovil.placa}}</td>
                 <td>{{automovil.color}}</td>
-                <td>{{automovil.marca_fk.nombre}}</td>
-                <td>{{automovil.cliente_fk.nombres}}</td>
-                <td>{{automovil.servicio_fk.nombre}}</td>
+                <td>{{automovil.marca.nombre}}</td>
+                <td>{{automovil.cliente.nombres}}</td>
+                <td>{{automovil.servicio.nombre}}</td>
                 <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;"
                     href="{% url 'automovil_editar' pk=automovil.pk %}">
                     <i class="fa fa-pencil" style="color: white;"></i>&nbsp;Editar</a>
