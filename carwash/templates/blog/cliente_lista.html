@@ -24,7 +24,11 @@
                 <td>{{cliente.apellidos}}</td>
                 <td>{{cliente.dpi}}</td>
                 <td>{{cliente.telefono}}</td>
-                <td><img style="width: 150px; height: 150px;" src="{{request.cliente.imagen.url |default_if_none:'#'}}"></td>
+                {% if cliente.imagen %}
+                <td><img style="width: 150px; height: 150px; border-radius: 50%;" src="{{cliente.imagen.url}}"></td>
+                {% else %}
+                <td><img style="width: 150px; height: 150px; border-radius: 50%;" src="https://i.ytimg.com/vi/3aqENB7EaVk/maxresdefault.jpg"></td>
+                {% endif %}
                 <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;"
                     href="{% url 'cliente_editar' pk=cliente.pk %}">
                     <i class="fa fa-pencil" style="color: white;"></i>&nbsp;Editar</a>
