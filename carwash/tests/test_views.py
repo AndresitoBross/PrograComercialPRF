@@ -99,3 +99,12 @@ class AutomovilTestViews(TestCase):
     def test_automovil_eliminar_delete(self):
         response=self.client.delete(self.eliminar_url)
         self.assertEquals(response.status_code,302)
+
+class RegistroTestViews(TestCase):
+    def setUp(self):
+        self.client=Client()
+        self.lista_url=reverse('registerPage')
+
+    def test_registro_lista_GET(self):
+        response=self.client.get(self.lista_url)
+        self.assertEquals(response.status_code,200)
