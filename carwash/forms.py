@@ -7,12 +7,11 @@ class MarcaForm(forms.ModelForm):
         model = Marca
         fields = ('nombre', 'Descripcion',)
 
-
 class ServicioForm(forms.ModelForm):
 
     class Meta:
-        model: Servicio
-        fields = ('nombre', 'precio')
+        model = Servicio
+        fields = ('service', 'precio')
 
 class ClienteForm(forms.ModelForm):
 

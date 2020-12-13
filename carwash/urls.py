@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     #Servicio
     path('servicio', views.lista_servicio, name='lista_servicio'),
-    path('servicio/nueva', views.servicio_nueva, name='servicio_nueva'),
+    path('servicio/nuevo', views.servicio_nuevo, name='servicio_nuevo'),
     path('servicio/<int:pk>/editar/', views.servicio_editar, name='servicio_editar'),
     path('servicio/<int:pk>/eliminar/', views.servicio_eliminar, name='servicio_eliminar'),
     #Marca

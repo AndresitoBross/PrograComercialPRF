@@ -2,31 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-class Servicio(models.Model):
-    
-    nombre = models.CharField(max_length=100)
-    precio = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.nombre
-        
-    def Serviciopost(self):
-        self.save()
-
-    def eliminar(self):
-        self.delete()
-<<<<<<< HEAD
-=======
-
-    def __str__(self):
-
-        return self.nombre
->>>>>>> master
-    
-    class Meta:
-        verbose_name_plural="Servicios"
-  
-
 class Cliente(models.Model):
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
@@ -61,6 +36,23 @@ class Marca(models.Model):
     
     class Meta:
         verbose_name_plural="Marcas"
+
+
+class Servicio(models.Model):
+    service = models.CharField(max_length=50)
+    precio = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.service
+    
+    def Clientepost(self):
+        self.save()
+
+    def eliminar(self):
+        self.delete()
+    
+    class Meta:
+        verbose_name_plural="Servicios"
 
 class Automovil(models.Model):
     placa = models.CharField(max_length=50)
