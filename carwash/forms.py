@@ -13,6 +13,7 @@ class ServicioForm(forms.ModelForm):
         model = Servicio
         fields = ('service', 'precio')
 
+
 class ClienteForm(forms.ModelForm):
 
     class Meta:

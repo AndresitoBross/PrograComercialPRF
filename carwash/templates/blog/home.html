@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin: auto;">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" style="height: 650px;">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://images.unsplash.com/photo-1457332253637-21d324d25df9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fGNhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://images.unsplash.com/photo-1530484567812-2d5a2d82268c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDZ8fGNhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Y3VzdG9tZXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Siguiente</span>
+                </a>
+              </div>
+
+{% endblock %}
