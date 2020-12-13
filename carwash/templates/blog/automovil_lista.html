@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <div class="content container">
-    <h1 style="text-align: center;">Listado de Clientes</h1>
+    <h1 style="text-align: center;">Listado de Automoviles</h1>
     <h2 style="text-align: center;">________</h2><br><br>
     <a href="#" class="top-menu" style="color:orange;">Agregar Automovil<span class="fa fa-plus"></a>
     <table class="table table-hover" style="background-color:#F8F9F9;">
@@ -21,9 +21,9 @@
                 <td>{{automoviles.pk}}</td>
                 <td>{{automoviles.placa}}</td>
                 <td>{{automoviles.color}}</td>
-                <td>{{automoviles.marca}}</td>
-                <td>{{automoviles.cliente}}</td>
-                <td>{{automoviles.servicio}}</td>
+                <td>{{automoviles.marca_fk.nombre}}</td>
+                <td>{{automoviles.cliente_fk.nombres}}</td>
+                <td>{{automoviles.servicio_fk.nombre}}</td>
             </tr>
             {%endfor %}
         </tbody>

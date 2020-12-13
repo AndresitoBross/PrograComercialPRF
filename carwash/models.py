@@ -62,7 +62,7 @@ class Automovil(models.Model):
     servicio_fk = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     marca_fk = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return self.placa
     
     class Meta:

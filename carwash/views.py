@@ -1,12 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
-from .models import Marca, Servicio, Cliente
+from .models import Marca, Servicio, Cliente, Automovil
 from .forms import MarcaForm, ClienteForm, ServicioForm
 
-
-
 #Servicio
-
 def lista_servicio(request):
     posts = Servicio.objects.filter().order_by('nombre')
     return render(request, 'blog/lista_servicio.html', {'posts': posts})
