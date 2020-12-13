@@ -5,7 +5,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -22,6 +22,39 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-#00806F"
+        style="background-color:#4c918a; min-height: 97px;">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/home" style="font-size:21px;">D i n a c o</a>
+        <a class="nav-link" style="color: whitesmoke;">|</a>
+        <div style="width: 5px;"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/cliente"
+                        style="min-width: 21px; font-size: 18px;">Clientes</a>
+                </li>
+                <div style="width: 10px;"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="min-width: 21px; font-size: 18px;">Automovil</a>
+                </li>
+                <div style="width: 10px;"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/marca"
+                        style="min-width: 21px; font-size: 18px;">Marca</a>
+                </li>
+                <div style="width: 10px;"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/servicio"
+                        style="min-width: 21px; font-size: 18px;">Servicio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
     {% block content %}
     {% endblock %}
 </body>

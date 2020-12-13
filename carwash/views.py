@@ -4,15 +4,17 @@ from django.utils import timezone
 from .models import Marca, Servicio, Cliente
 from .forms import MarcaForm, ClienteForm, ServicioForm
 
+#Marca
+def marca_lista(request):
+    marces = Marca.objects.filter().order_by('nombre')
+    return render(request, 'blog/marca_lista.html', {'marces':marces})
 
 def lista_servicio(request):
     posts = Servicio.objects.filter().order_by('nombre')
     return render(request, 'blog/lista_servicio.html', {'posts': posts})
 
-#Marca
-def marca_lista(request):
-    marces = Marca.objects.filter().order_by('nombre')
-    return render(request, 'blog/marca_lista.html', {'marces':marces})
+def home(request):
+    return render(request, 'blog/home.html')
     
 #POST
 def marca_nueva(request):
