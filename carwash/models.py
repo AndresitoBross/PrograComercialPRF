@@ -3,17 +3,18 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Servicio(models.Model):
+    
     nombre = models.CharField(max_length=100)
     precio = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nombre
+        
     def Serviciopost(self):
         self.save()
 
     def eliminar(self):
         self.delete()
-
-    def _str_(self):
-        return self.nombre
     
     class Meta:
         verbose_name_plural="Servicios"
