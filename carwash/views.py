@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 #from django.contrib.auth.decorators import login_required
-from django.utils import timezone
-from .models import Marca, Servicio, Cliente
-from .forms import MarcaForm, ClienteForm, ServicioForm
+from .models import Marca, Servicio, Cliente, Automovil
+from .forms import MarcaForm, ClienteForm, ServicioForm, AutomovilForm
 
-
+#Servicio
 def lista_servicio(request):
     posts = Servicio.objects.filter().order_by('nombre')
     return render(request, 'blog/lista_servicio.html', {'posts': posts})
@@ -112,3 +111,35 @@ def cliente_eliminar(request, pk):
     cliente.eliminar()
     return redirect('cliente_lista')
 
+#Automovil
+def automovil_lista(request):
+    automoviles = Automovil.objects.filter().order_by('placa')
+    return render(request, 'blog/automovil_lista.html', {'automoviles':automoviles})
+
+def automovil_nuevo(request):
+    if request.method == "POST":
+        formulario = AutomovilForm(request.POST)
+        if formulario.is_valid():
+            automovil = formulario.save(commit=False)
+            automovil.save()
+            return redirect('automovil_lista')
+    else:
+        formulario = AutomovilForm()
+    return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
+
+def automovil_editar(request, pk):
+    automovil = get_object_or_404(Automovil, pk=pk)
+    if request.method == "POST":
+        formulario = AutomovilForm(request.POST, instance=automovil)
+        if formulario.is_valid():
+            automovil = formulario.save(commit=False)
+            automovil.save()
+            return redirect('automovil_lista')
+    else:
+        formulario = AutomovilForm(instance=automovil)
+    return render(request, 'blog/automovil_editar.html', {'formulario': formulario})
+
+def automovil_eliminar(request, pk):
+    automovil = get_object_or_404(Automovil, pk=pk)
+    automovil.eliminar()
+    return redirect('automovil_lista')

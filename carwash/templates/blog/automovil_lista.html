@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="content container">
+    <h1 style="text-align: center;">Listado de Automoviles</h1>
+    <h2 style="text-align: center;">________</h2><br><br>
+    <a href="{% url 'automovil_nuevo' %}" class="top-menu" style="color:orange;">Agregar Automovil<span class="fa fa-plus"></a>
+    <table class="table table-hover" style="background-color:#F8F9F9;">
+        <thead class="thead-dark">
+            <tr>
+                <th class="header" scope="col">#</th>
+                <th class="header" scope="col">Placa</th>
+                <th class="header" scope="col">Color</th>
+                <th class="header" scope="col">Marca</th>
+                <th class="header" scope="col">Cliente</th>
+                <th class="header" scope="col">Servicio</th>
+                <th class="header" scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for automovil in automoviles %}
+            <tr>
+                <td>{{automovil.pk}}</td>
+                <td>{{automovil.placa}}</td>
+                <td>{{automovil.color}}</td>
+                <td>{{automovil.marca.nombre}}</td>
+                <td>{{automovil.cliente.nombres}}</td>
+                <td>{{automovil.servicio.nombre}}</td>
+                <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;"
+                    href="{% url 'automovil_editar' pk=automovil.pk %}">
+                    <i class="fa fa-pencil" style="color: white;"></i>&nbsp;Editar</a>
+                    <a class="btn btn-danger btn-sm"
+                    href="{% url 'automovil_eliminar' pk=automovil.pk %}">
+                        <i class="fa fa-ban" style="color: white;"></i>&nbsp;Eliminar</a>
+                </td>
+            </tr>
+            {%endfor %}
+        </tbody>
+    </table> 
+</div>
+</div>
+{% endblock %}

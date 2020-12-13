@@ -17,4 +17,9 @@ urlpatterns = [
     path('cliente/nuevo', views.cliente_nuevo, name='cliente_nuevo'),
     path('cliente/<int:pk>/editar/', views.cliente_editar, name='cliente_editar'),
     path('cliente/<int:pk>/eliminar/', views.cliente_eliminar, name='cliente_eliminar'),
+    #Automovil
+    path('automovil', views.automovil_lista, name='automovil_lista'),
+    path('automovil/nuevo', views.automovil_nuevo, name='automovil_nuevo'),
+    path('automovil/<int:pk>/editar/', views.automovil_editar, name='automovil_editar'),
+    path('automovil/<int:pk>/eliminar/', views.automovil_eliminar, name='automovil_eliminar'),
 ]

@@ -15,6 +15,13 @@ class Servicio(models.Model):
 
     def eliminar(self):
         self.delete()
+<<<<<<< HEAD
+=======
+
+    def __str__(self):
+
+        return self.nombre
+>>>>>>> master
     
     class Meta:
         verbose_name_plural="Servicios"
@@ -55,4 +62,21 @@ class Marca(models.Model):
     class Meta:
         verbose_name_plural="Marcas"
 
+class Automovil(models.Model):
+    placa = models.CharField(max_length=50)
+    color = models.CharField(max_length=50)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.placa
+    
+    class Meta:
+        verbose_name_plural="Automoviles"
+    
+    def Automovilpost(self):
+        self.save()
+
+    def eliminar(self):
+        self.delete()
