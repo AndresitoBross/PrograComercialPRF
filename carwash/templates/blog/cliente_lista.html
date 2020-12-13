@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <div class="content container">
+    <br><br>    
     <h1 style="text-align: center;">Listado de Clientes</h1>
     <h5 style="text-align: center; font-size: 25px;">________________</h5><br><br>
     <a href="{% url 'cliente_nuevo' %}" class="top-menu" style="color:orange;">Agregar Cliente <span class="fa fa-plus"></a><br><br>
@@ -29,7 +30,7 @@
                 {% else %}
                 <td><img style="width: 150px; height: 150px; border-radius: 50%;" src="https://i.ytimg.com/vi/3aqENB7EaVk/maxresdefault.jpg"></td>
                 {% endif %}
-                <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;"
+                <td><a class="btn btn-warning btn-sm" style="background-color:#F7985B;" 
                     href="{% url 'cliente_editar' pk=cliente.pk %}">
                     <i class="fa fa-pencil" style="color: white;"></i>&nbsp;Editar</a>
                     <a class="btn btn-danger btn-sm"

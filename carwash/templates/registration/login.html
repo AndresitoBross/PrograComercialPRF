@@ -5,6 +5,8 @@
         <p>Tu username y password son incorrectas. Por favor prueba de nuevo.</p>
     {% endif %}
 
+    <div class="content container">
+            <br><br>    
     <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
         <table>
@@ -17,9 +19,11 @@
             <td>{{ form.password }}</td>
         </tr>
         </table>
-
+        <br>
         <input type="submit" value="login" />
+        <br>
         <input type="hidden" name="next" value="{{ next }}" />
         <a href="{% url 'registerPage' %}" style="color:brown;">Crear Cuenta <span class="fa fa-plus"></a>
     </form>
+    </div>
 {% endblock %}
