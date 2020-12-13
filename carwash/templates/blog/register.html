@@ -1,10 +1,15 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<div class="content container">
+    <br>
 <h3>Registro</h3>
+<br>
 <form method="POST" action="">
   {% csrf_token %}
   {{form.as_p}}
-  <input type="submit" name="Crear Usuario">
-</form>
+  <input type="submit" name="Crear Usuario" style="background-color:#69243E; color: whitesmoke; 
+  border-radius: 20px;">
 
+</form>
+</div>
 {% endblock %}
