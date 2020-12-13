@@ -9,7 +9,7 @@ class MarcaTestViews(TestCase):
         self.lista_url=reverse('marca_lista')
         self.nueva_url=reverse('marca_nueva')
         self.eliminar_url=reverse('marca_eliminar', kwargs={'pk': 1})
-        self.editar_url=reverse('marca_eliminar', kwargs={'pk': 1})
+        self.editar_url=reverse('marca_editar', kwargs={'pk': 1})
 
     def test_marca_lista_GET(self):
         response=self.client.get(self.lista_url)
