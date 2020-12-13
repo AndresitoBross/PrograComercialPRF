@@ -5,12 +5,6 @@ from .forms import MarcaForm, ClienteForm, ServicioForm, AutomovilForm
 from django.utils import timezone
 
 
-#Marca
-def marca_lista(request):
-    marces = Marca.objects.filter().order_by('nombre')
-    return render(request, 'blog/marca_lista.html', {'marces':marces})
-
-
 #Servicio
 def lista_servicio(request):
     posts = Servicio.objects.filter().order_by('service')
@@ -47,7 +41,7 @@ def servicio_eliminar(request, pk):
     servicio.eliminar()
     return redirect('lista_servicio')
 
-#Marca
+#Marca  
 def marca_lista(request):
     marces = Marca.objects.filter().order_by('nombre')
     return render(request, 'blog/marca_lista.html', {'marces':marces})
